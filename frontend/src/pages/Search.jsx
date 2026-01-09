@@ -99,12 +99,12 @@ export default function Search() {
               data-testid="search-input"
             />
             
-            <Select value={selectedGenre} onValueChange={handleGenreChange}>
+            <Select value={selectedGenre || "all"} onValueChange={handleGenreChange}>
               <SelectTrigger className="w-full md:w-48 h-12 bg-gray-900 border-gray-700 text-white" data-testid="genre-filter">
                 <SelectValue placeholder="All Genres" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Genres</SelectItem>
+                <SelectItem value="all">All Genres</SelectItem>
                 {genres.map((genre) => (
                   <SelectItem key={genre.id} value={genre.name}>
                     {genre.name}
