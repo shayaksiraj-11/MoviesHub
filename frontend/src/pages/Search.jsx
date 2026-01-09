@@ -68,11 +68,12 @@ export default function Search() {
   };
 
   const handleGenreChange = (value) => {
-    setSelectedGenre(value);
+    const genre = value === 'all' ? '' : value;
+    setSelectedGenre(genre);
     if (query) {
       const params = new URLSearchParams();
       params.append('q', query);
-      if (value) params.append('genre', value);
+      if (genre) params.append('genre', genre);
       if (selectedYear) params.append('year', selectedYear);
       setSearchParams(params);
     }
